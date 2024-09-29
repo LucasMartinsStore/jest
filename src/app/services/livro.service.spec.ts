@@ -2,11 +2,15 @@ import { GeneroLiterario } from './../componentes/livro/livro';
 import { Livro } from '../componentes/livro/livro';
 import { livros } from '../mock-livros';
 import { ErroGeneroLiterario, LivroService } from './livro.service';
+import { TestBed } from '@angular/core/testing';
 describe('LivroService', () => {
   let livroService: LivroService;
 
   beforeEach(() => {
-    livroService = new LivroService();
+    TestBed.configureTestingModule({
+      providers: [LivroService],
+    });
+    livroService = TestBed.inject(LivroService);
   });
 
   it('should be created', () => {
